@@ -32,6 +32,7 @@ function UseState({ name }) {
         eliminar.
       </p>
 
+      {/* {(error && !loading) && <p style={{ color: "red" }}>Error: el código es incorrecto</p>} */}
       {error && <p style={{ color: "red" }}>Error: el código es incorrecto</p>}
       {loading && <p style={{ color: "green" }}>Cargando...</p>}
 
@@ -39,12 +40,13 @@ function UseState({ name }) {
         placeholder="Código de seguridad"
         value={value}
         onChange={(event) => {
+          /* setError(false); */
           setValue(event.target.value);
         }}
       />
       <button onClick={() => {
         setLoading(true);
-        setError(false);
+        setError(false); //Este fue correcto
       }}>Comprobar</button>
     </div>
   );
